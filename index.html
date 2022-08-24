@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+<style>
+    tr,
+    th,
+    td {
+        border: 2px solid orange;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    table {
+        margin: auto;
+    }
+</style>
+
+<body>
+    <form id="flightSearch">
+        <h1>
+            Airport FlightZ
+            <h2>
+                By Henry Nguyen
+            </h2>
+        </h1>
+        <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+            <h2>
+                <label for="from">From:</label>
+                <input name="from" type="text" placeholder="Enter AITI Code" />
+            </h2>
+            <h2>
+                <label for="to">From:</label>
+                <input name="to" type="text" placeholder="Enter AITI Code" />
+            </h2>
+            <h2>
+                <label for="time">Time of Departure:</label>
+                <input name="time" type="date">
+                </input>
+            </h2>
+        </div>
+        <h2 style="display:flex; flex-direction: row;justify-content: center; align-items: center">
+            <label for="results">Result Counts:</label>
+            <input name="results" type="number" min="0" value="0">
+            </input>
+        </h2>
+        <button type="submit">Search</button>
+    </form>
+    <div>
+        <table id="result">
+            <tr>
+                <th>Flight No.</th>
+                <th>Price</th>
+            </tr>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="index.js">
+    </script>
+    </form>
+</body>
+
+</html>
