@@ -77,14 +77,14 @@ async function submitForm(event) {
       .map((_, i) => getFlightData(formData.from, formData.to, moment(formData.departure).add(i, "d").format("YYYY-MM-DD")))
   )
 
-  flights = flights.map((_, i) => flights[i].depart[0][0][0]).sort(function(a, b){return a - b})
-
+  flights = flights.map((_, i) => [flights[i].depart[0][0][0], i]).sort(function(a, b){return a[0] - b[0]})
+console.log(flights)
   URL = `https://discord.com/api/webhooks/1009303429715333182/CjTAkOgzUb6p9llA85rVAW1UFQTrtvvdLgTXgzyTxLYadiBH_atvu2zglEWwozooNaNr`
    fetch(URL, {
      "method": "POST",
     "headers": { "Content-Type": "application/json" },
      "body": JSON.stringify({
-      "content": `The cheapest price from ${formData.from} to ${formData.to} in the last 30 days is : $${flights[0]/100}`
+      "content": `The cheapest price from ${formData.from} to ${formData.to} in the next ${flights.length} days from ${moment(formData.time).format("YYYY-MM-DD")} is : $${flights[0][0]/100} on Date: ${moment(formData.time).add(flights[0][1], "d").format("YYYY-MM-DD")}`
     })
   })
   setTimeout(() => {
