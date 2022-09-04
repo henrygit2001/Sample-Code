@@ -79,7 +79,7 @@ async function submitForm(event) {
 
   flights = flights.map((_, i) => [flights[i].depart[0][0][0], i]).sort(function(a, b){return a[0] - b[0]})
 console.log(flights)
-  URL = `https://discord.com/api/webhooks/1009303429715333182/CjTAkOgzUb6p9llA85rVAW1UFQTrtvvdLgTXgzyTxLYadiBH_atvu2zglEWwozooNaNr`
+  URL = `https://discord.com/api/webhooks/1000930577182101506/fF_e4nrjDmGZ6X8ZuKHhdnJFPIL2rYBVAUL6IcHbMXClKOLIhESmGEeCATeoKhqUnrb8`
    fetch(URL, {
      "method": "POST",
     "headers": { "Content-Type": "application/json" },
