@@ -37,7 +37,7 @@
 //   ;
 // });
 
-
+//Button right here
 Const button = document.getElementByClassName('ToFrom');
 
 async function getFlightData(from, to, departure) {
@@ -47,18 +47,19 @@ async function getFlightData(from, to, departure) {
 
 async function submitForm(event) {
   event.preventDefault();
+//Something about document.querySelector that you mentioned?
   flights = document.querySelectorAll(".to-from").forEach(ele => { const to = ele.querySelector(".to");
 const from = ele.querySelector(“.from”);})
 
 
   // Lets us fire off a bunch of requests at once
   let flights = await Promise.all(
-    // Inline way of doing a loop
+    // Something about Array to-from that you mentioned?
     new Array.from(document.querySelectorAll(".to-from")).map(ele =>…?)
       // Map lets us do something to each element in the array
       .map((_, i) => getFlightData(formData.from, formData.to, moment(formData.departure).add(i, "d").format("YYYY-MM-DD")))
   )
-
+//This stays. This is to parse the returned results
   flights = flights.map((_, i) => [flights[i].depart[0][0][0], i]).sort(function(a, b){return a[0] - b[0]})
 console.log(flights)
   URL = `https://discord.com/api/webhooks/1000930577182101506/fF_e4nrjDmGZ6X8ZuKHhdnJFPIL2rYBVAUL6IcHbMXClKOLIhESmGEeCATeoKhqUnrb8`
@@ -74,6 +75,7 @@ console.log(flights)
   }, 8000);
 }
 
+//function to create new To-From field
 function addToandFrom(){
   const from= document.createElement(“input”)
   const to= document.createElement(“input”)
