@@ -66,7 +66,7 @@ async function getFlightData(from, to, departure) {
 async function submitForm(event) {
   event.preventDefault();
   const formData = Array.from(event.target.querySelectorAll("input")).map(e => ({ name: e.name, value: e.value }))
-    .reduce((acc, curr) => ({ ...acc, [curr.name]: curr.value }), {});
+    .reduce((acc, curr) => ({ ...acc, [curr.name]: curr.value}), {});
   console.log(formData);
 
   // Lets us fire off a bunch of requests at once
