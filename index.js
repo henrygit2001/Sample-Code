@@ -38,25 +38,7 @@
 // });
 
 
-function Webhook() {
-URL = `https://discord.com/api/webhooks/1009303429715333182/CjTAkOgzUb6p9llA85rVAW1UFQTrtvvdLgTXgzyTxLYadiBH_atvu2zglEWwozooNaNr`
-   fetch(URL, {
-     "method": "POST",
-    "headers": { "Content-Type": "application/json" },
-     "body": JSON.stringify({
-      "content": `The cheapest price from ${formData.from} to ${formData.to} in the last 30 days is : ${flights[0]}`
-    })
-  })
- }
-//Selection Sort
-//let minimum;
-
-//Loop Date
-// function LoopDate(a) {
-//   document.getElementById('box3').value = moment().add(a, 'd').format("YYYY-MM-DD")
-//   setTimeout("", 5000);
-//   document.body.dispatchEvent(new KeyboardEvent("keypress", { key: "Enter" }))
-// }
+Const button = document.getElementByClassName('ToFrom');
 
 async function getFlightData(from, to, departure) {
   const flightResponse = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://skiplagged.com/api/search.php?from=${from}&to=${to}&depart=${departure}`)}`)
@@ -65,14 +47,14 @@ async function getFlightData(from, to, departure) {
 
 async function submitForm(event) {
   event.preventDefault();
-  const formData = Array.from(event.target.querySelectorAll("input")).map(e => ({ name: e.name, value: e.value }))
-    .reduce((acc, curr) => ({ ...acc, [curr.name]: curr.value}), {});
-  console.log(formData);
+  flights = document.querySelectorAll(".to-from").forEach(ele => { const to = ele.querySelector(".to");
+const from = ele.querySelector(“.from”);})
+
 
   // Lets us fire off a bunch of requests at once
   let flights = await Promise.all(
     // Inline way of doing a loop
-    new Array(Number(formData.results)).fill(null)
+    new Array.from(document.querySelectorAll(".to-from")).map(ele =>…?)
       // Map lets us do something to each element in the array
       .map((_, i) => getFlightData(formData.from, formData.to, moment(formData.departure).add(i, "d").format("YYYY-MM-DD")))
   )
@@ -92,4 +74,12 @@ console.log(flights)
   }, 8000);
 }
 
+function addToandFrom(){
+  const from= document.createElement(“input”)
+  const to= document.createElement(“input”)
+  from.name = from;
+  to.name = to;
+}
+
 flightSearch.addEventListener("submit", submitForm);
+button.addEventListener(“click”, addToandFrom);
