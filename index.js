@@ -55,9 +55,9 @@ const from = ele.querySelector(“.from”);})
   // Lets us fire off a bunch of requests at once
   let flights = await Promise.all(
     // Something about Array to-from that you mentioned?
-    new Array.from(document.querySelectorAll(".to-from")).map(ele =>…?)
+    new Array.from(document.querySelectorAll(".to-from")).map(ele =>
       // Map lets us do something to each element in the array
-      .map((_, i) => getFlightData(formData.from, formData.to, moment(formData.departure).add(i, "d").format("YYYY-MM-DD")))
+      .map((_, i) => getFlightData(formData.from, formData.to, moment(formData.departure).add(i, "d").format("YYYY-MM-DD"))))
   )
 //This stays. This is to parse the returned results
   flights = flights.map((_, i) => [flights[i].depart[0][0][0], i]).sort(function(a, b){return a[0] - b[0]})
